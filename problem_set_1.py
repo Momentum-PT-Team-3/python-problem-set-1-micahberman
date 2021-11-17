@@ -39,13 +39,15 @@ def is_even(number):
 # Fahrenheit temperature as an argument and returns the
 # temperature in Celsius.
 def fahrenheit_to_celsius (temp_in_F):
-    pass
+    celsius = (temp_in_F - 32) * 5.0/9.0 
+    return int (celsius)
 # ------------------------------------------------------------------------------
 # 7. Create a function called `celsius_to_fahrenheit` that takes a
 # Celsius temperature as an argument and returns the
 # temperature in Fahrenheit.
 def celsius_to_fahrenheit (temp_in_C):
-    pass
+    fahrenheit = temp_in_C * 1.8 + 32
+    return int (fahrenheit)
 
 # ------------------------------------------------------------------------------
 # 8. Create a function called `fahrenheit_to_kelvin` that takes a
@@ -55,14 +57,18 @@ def celsius_to_fahrenheit (temp_in_C):
 # Absolute zero (0 K) is equivalent to −273.15 C.
 # 1 degree Kelvin equals 1 degree Celsius.
 def fahrenheit_to_kelvin (temp_in_F):
-    pass
+    kelvin = fahrenheit_to_celsius (temp_in_F) + 273.15
+    return kelvin
 
 # ------------------------------------------------------------------------------
 # 9. Create a function called `lesser` that takes two numbers as
 # arguments and returns the lesser of them. This function should
 # use an if/else statement.
 def lesser (number1, number2):
-    pass
+    if number1 > number2:
+        return number2
+    else:
+        return number1
 
 # ------------------------------------------------------------------------------
 # 10. Create a function called `multigreeting` that takes a name
@@ -77,7 +83,16 @@ def lesser (number1, number2):
 #
 # If any other language code is used, return nothing.
 def multigreeting (name, language):
-    pass
+    if language == 'en':
+        return 'Hello, ' + name + '!'
+    elif language == 'es':
+        return '¡Hola, ' + name + '!'
+    elif language == 'fr':
+        return 'Bonjour, ' + name + '!'
+    elif language == 'eo':
+        return 'Saluton, ' + name + '!'
+    else: 
+        return
 
 # ------------------------------------------------------------------------------
 # 11. The greatest common divisor (https://en.wikipedia.org/wiki/Greatest_common_divisor)
@@ -107,4 +122,19 @@ def multigreeting (name, language):
 # Write a function called `gcd` that takes two arguments and returns the greatest
 # common divisor using the instructions above.
 def gcd (a, b):
-    pass
+    d=0
+    while is_even(a) and is_even(b):
+        a=a/2
+        b=b/2
+        d=d+1
+    while a != b:
+        if is_even(a):
+            a = a / 2
+        elif is_even(b):
+            b = b / 2
+        elif a > b:
+            a = (a -b)/2
+        else:
+            b = (b - a)/2
+    g = a
+    return g * 2**d 
